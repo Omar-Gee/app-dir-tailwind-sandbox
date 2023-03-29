@@ -9,7 +9,9 @@ const getMovie = async (id: string) => {
     getMovieImage(id),
   ]);
 
-  const posterUrl = `https://image.tmdb.org/t/p/w185/${images.posters[0].file_path}`;
+  const posterUrl = images.posters[0]
+    ? `https://image.tmdb.org/t/p/w185${images.posters[0].file_path}`
+    : "/images/not_found.jpg";
   return { ...movie, posterUrl };
 };
 

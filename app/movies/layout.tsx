@@ -5,7 +5,7 @@ import { getMovies } from "@/utils/getMovies";
 type Props = { children: any };
 
 const Layout: React.FC<Props> = ({ children }) => {
-  const movies = use(getMovies());
+  const movies = use(getMovies("upcoming"));
 
   return (
     <div className={"flex p-4 pt-10"}>

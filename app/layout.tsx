@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import NavLink from "@/app/nav-link";
+import Header from "@/app/components/header";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,12 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={"bg-gray-900 text-white"}>
       <body>
-        <header className={"border-b p-4"}>
-          <nav className={"space-x-4"}>
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="/movies">movies</NavLink>
-          </nav>
-        </header>
+        <Header />
         {children}
       </body>
     </html>
