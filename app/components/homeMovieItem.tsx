@@ -11,16 +11,15 @@ type Props = {
 
 const HomeMovieItem: React.FC<Props> = ({ posterPath, id }) => {
   useEffect(() => {
-    const element = document.querySelector(".js-tilt");
+    const elements = document.querySelectorAll(".js-tilt");
     // @ts-ignore
-    element && VanillaTilt.init(element);
+    VanillaTilt.init(elements);
   }, []);
   return (
     <div
       data-tilt
       data-tilt-scale="1.1"
       data-tilt-reverse="true"
-      key={id}
       className={
         "transition-all relative min-w-fit cursor-pointer hover:shadow-[1px_38px_46px_-28px_rgba(239,240,247,1)] js-tilt"
       }
