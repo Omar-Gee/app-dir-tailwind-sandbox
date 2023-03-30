@@ -1,7 +1,4 @@
-import React, { use } from "react";
-import { getMovies } from "@/utils/getMovies";
-import { getMovieImage } from "@/utils/getMovieImage";
-import HomeMovieItem from "@/app/components/homeMovieItem";
+import React from "react";
 
 type Props = {};
 

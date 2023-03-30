@@ -2,6 +2,8 @@ import React, { use } from "react";
 import Image from "next/image";
 import { getMovieImage } from "@/utils/getMovieImage";
 import { getMovieDetails } from "@/utils/getMovieDetails";
+import { getMovies } from "@/utils/getMovies";
+import { getAllMovies } from "@/utils/getAllMovies";
 
 const getMovie = async (id: string) => {
   const [movie, images] = await Promise.all([
@@ -21,7 +23,7 @@ const Movie: React.FC<Props> = ({ params }) => {
   const movie = use(getMovie(params.id));
 
   return (
-    <div>
+    <div className={"p-4"}>
       <div className={"w-48 relative h-72"}>
         <Image
           src={movie.posterUrl}
@@ -40,10 +42,7 @@ const Movie: React.FC<Props> = ({ params }) => {
 export default Movie;
 
 export async function generateStaticParams() {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?api_key=e4935b3091326c5c0a624326773a41e9`
-  );
-  const movies = await res.json();
+  const allMovies = await getAllMovies();
 
-  return movies.results.map((movie: any) => ({ id: movie.id }));
+  return allMovies.map((movie: any) => ({ id: movie.id }));
 }
